@@ -87,7 +87,7 @@ html,body {
 .Result{
   /* font-size: 110%; */
   margin-bottom: 0.5vw;
-  background-color: #EEEEEE;
+  background-color: #F3F3F3;
   border-radius: 1vw;
   padding: 0.5vw;
 }
@@ -95,6 +95,20 @@ html,body {
 .Result.First{
   font-size: 150%;
   margin-bottom: 1vw;
+  background-color: #DDDDDD;
+}
+
+.Depth1{
+  margin-left: 1vw;
+}
+.Depth2{
+  margin-left: 2vw;
+}
+.Depth3{
+  margin-left: 3vw;
+}
+.Depth4{
+  margin-left: 4vw;
 }
 
 .TableListEntry{

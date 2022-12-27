@@ -19,4 +19,4 @@ Weight,Text,Info
 1,The Previous Adventurers,
 1,Something Meta,
 1,The Only Exit,
-1,Roll Twice,{RollOn:{Amount:2}}
+1,Roll Twice,{"RollOn":{"Amount":2}}
