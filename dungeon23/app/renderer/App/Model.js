@@ -82,7 +82,9 @@ var Model = {
     for(let ent of table.Entries){
       roll -= Model.GetWeight(ent);
       if(roll <= 0) {
-        God.Results.AddResult(ent);
+        let result = {Table:table.Name,Readout:[], ID:Math.random()};
+        result.Readout.push(ent.Text);
+        God.Results.AddResult(result);
         return;
       }
     }

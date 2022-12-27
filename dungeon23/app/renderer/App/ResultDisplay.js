@@ -1,6 +1,7 @@
 import React from "react";
 import Model from "./Model.js";
 import God from "./God.js";
+import RollResult from "./RollResult.js";
 
 class ResultDisplay extends React.Component {
   constructor(props){
@@ -23,8 +24,7 @@ class ResultDisplay extends React.Component {
     let first = true;
     for(let n = this.state.results.length - 1;n >= 0 ;n--){
       let res = this.state.results[n];
-      let cl = first ? "Result First" : "Result";
-      results.push(<div key={"RES"+results.length+"."+res.Key} className={cl}>{res.Text}</div>);
+      results.push(<RollResult key={"RES"+results.length+"."+res.Key} first={first} result={res} />);
       first = false;
     }
     if(results.length == 0)

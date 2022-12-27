@@ -86,6 +86,10 @@ html,body {
 
 .Result{
   /* font-size: 110%; */
+  margin-bottom: 0.5vw;
+  background-color: #EEEEEE;
+  border-radius: 1vw;
+  padding: 0.5vw;
 }
 
 .Result.First{

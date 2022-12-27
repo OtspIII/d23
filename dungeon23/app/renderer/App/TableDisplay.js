@@ -1,6 +1,7 @@
 import React from "react";
 import Model from "./Model.js";
 import God from "./God.js";
+import RollEntry from "./RollEntry.js";
 
 class TableDisplay extends React.Component {
   constructor(props){
@@ -24,11 +25,13 @@ class TableDisplay extends React.Component {
     let entries = [];
     let w = 0;
     for(let ent of table.Entries){
-      let low = w + 1;
+      // let low = w + 1;
+      // w += parseInt(ent.Weight);
+      // let range = ""+w;
+      // if(w > low) range = low + "-" + range;
+      //entries.push(<div key={"E"+entries.length}>{range}: {ent.Text}</div>)
+      entries.push(<div key={"E"+entries.length}><RollEntry entry={ent} w={w}/></div>)
       w += parseInt(ent.Weight);
-      let range = ""+w;
-      if(w > low) range = low + "-" + range;
-      entries.push(<div key={"E"+entries.length}>{range}: {ent.Text}</div>)
     }
     return (<div>
       <h3>{table.Name}</h3>
