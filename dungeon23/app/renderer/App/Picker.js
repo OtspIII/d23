@@ -1,13 +1,13 @@
 import React from "react";
-import DB from "./DB.js";
+// import DB from "./DB.js";
 import God from "./God.js";
-import Things from "./Things.js";
-import GLink from "./Link.js";
+// import Things from "./Things.js";
+// import GLink from "./Link.js";
 import Model from "./Model.js";
-import Field from "./Field.js";
+// import Field from "./Field.js";
 import Autocomplete from "react-autocomplete";
 // import AutosizeInput from 'react-input-autosize';
-import { Redirect } from "react-router";
+// import { Redirect } from "react-router";
 
 
 class Picker extends React.Component {
@@ -45,33 +45,19 @@ class Picker extends React.Component {
       {
         targ = targ[t];
         if (!targ){
-          // return "none";
-          // console.log("NULL TARG: " + t + " / " + JSON.stringify(thing) + " / " + JSON.stringify(type))
           break;
         }
       }
-    // console.log("CALC TARG: " + thing + " / " + JSON.stringify(type));
     return targ;
   }
-  // CDU: {"Monsters":[{"Title":"Goblin Rogue","Desc":"hidden behind secret passageway","Num":"1","Subject":"encounter"}]
   
   componentDidUpdate(prevProps, prevState, snapshot){
-    // console.log("CDU Picker");
-    // if ((this.props.active && !prevProps.active) || (this.state.active && !prevState.active)){
-    //   let act = document.getElementById("Active");
-    //   if (act)
-    //     act.focus();
-    // }
     let val = this.calculateTarget(this.props.thing,this.props.type);
     if (this.state.id != val)
       {
         this.setState({id:val});
       }
-    // this.mounted = true;
-    // console.log("X2");
-    
     if (!this.mounted || this.state.call || prevProps.filters != this.props.filters || prevProps.subject != this.props.subject){
-      // console.log("ABC");
       this.mounted = true;
       this.setup();
     }
@@ -84,36 +70,13 @@ class Picker extends React.Component {
       this.setThings(this.props.options);
       return;
     }
-    
-    // let filters = {'subject':this.props.subject};
-    // for(let f in this.props.filters)
-    // {
-    //   filters[f] = this.props.filters[f];
-    // }
-    // console.log("DEF: " + JSON.stringify(filters));
-    //DB.CallDB('getall',filters,r=>{ 
-    if(!this.props.subject || !Things[this.props.subject]){
-      console.log("NOT VALID SUBJECT: " + this.props.subject);
-      this.setThings([]);
-      return;
-    }
-    DB.GetAll(this.props.subject,this.props.filters,r=>{
-      // console.log("GET ALL: " + r.length)
-      if (this.mounted) {
-        if (Things[this.props.subject].TableSort)
-          r = Things[this.props.subject].TableSort(r);
-        else
-          r = r.sort((a,b) => (a.Tag > b.Tag) ? 1 : -1)
-        // console.log("XYZ");
-        this.setThings(r);
-
-    }})
+    console.log("NO OPTIONS");
+    this.setThings([]);
   }
 
   setThings(things){
     let stateID = this.state.id;
     if(stateID && stateID.ID) stateID = stateID.ID;
-    // console.log("P Set Things: " + things.length);
     let thingstemp = [{Tag:undefined}];
     for (let t of things)
     {
@@ -139,7 +102,6 @@ class Picker extends React.Component {
       }
     }
     if (!found){
-      // console.log("BACKUP TAG: " + stateID);
       this.setState({value: stateID});
     }
     this.setState({thingDict: dict});
@@ -148,33 +110,26 @@ class Picker extends React.Component {
   componentWillUnmount(){
     this.setState({call:true})
     this.mounted = false;
-    // console.log("X3")
   }
 
   handleChange(v){//When you type
     if(v && v.ID) v = v.ID;
     this.setState({value:v});
-    // console.log("onChange: " + v);
   }
 
   handleSelect(v){//When you pick an option
     if(v && v.ID) v = v.ID;
     this.setState({value:v, active:false});
-    // console.log("onSelect: " + v + " / " + JSON.stringify(v));
-    // console.log("DICT: " + JSON.stringify(this.state.thingDict));
     if (this.state.thingDict[v]){
-      // console.log("CHOSE IT: " + JSON.stringify(this.state.thingDict[v]));
       //Modify records here, I guess
-      // let thing = this.props.thing;
       let newVal = this.state.thingDict[v].ID ? this.state.thingDict[v].ID : v;
       if(this.props.fullLink) {
-        console.log("LINK: " + newVal)
+        // console.log("LINK: " + newVal)
         newVal = {Subject:this.props.subject, ID:newVal};
       }
-      // console.log("A: " + this.state.thingDict[v].ID + " / " + JSON.stringify(newVal));
-      // console.log("B: " + JSON.stringify(v));
+      
       this.props.thing[this.props.type] = newVal;
-      DB.UpdateElement(this.props.type,newVal,this.props.thing);
+      
       if (this.props.update)
         this.props.update(this.props.thing);
     }
@@ -256,13 +211,13 @@ class Picker extends React.Component {
       if(!txt || txt == "") txt = "...";
       // console.log("Picker: " + this.state.value + " / " + this.props.subject + " / " + JSON.stringify(hover))
       r = <span className={cl + ' Picker'} onContextMenu={r=>{this.handleClick(r)}}>{txt}</span>;
-      if(this.props.subject){
-        link = <GLink thing={hover} subject={this.props.subject} text='&#11111;' style="Icon"/>;
-        // console.log("VAL: " + this.state.value + " / " + JSON.stringify(hover))
-      }
+      // if(this.props.subject){
+      //   link = <GLink thing={hover} subject={this.props.subject} text='&#11111;' style="Icon"/>;
+      //   // console.log("VAL: " + this.state.value + " / " + JSON.stringify(hover))
+      // }
     }
-    if (this.props.title)
-      return <Field title={this.props.title} bod={r} width={this.props.width} button={link} hover={hover} click={e=>this.handleClick(e)}/>;
+    // if (this.props.title)
+    //   return <Field title={this.props.title} bod={r} width={this.props.width} button={link} hover={hover} click={e=>this.handleClick(e)}/>;
       // return God.MakeField(this.props.title,r,this.props.width,e => {},link);;
     if (hover)
       return <span onMouseEnter={e=>Model.MainScreen.SetHover(hover)} onMouseLeave={e=>Model.MainScreen.EndHover(hover)}>{r}{link}</span>;

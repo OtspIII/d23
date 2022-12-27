@@ -69,6 +69,9 @@ var God = {
     // console.log("RES: [" + r + "] " + desc + " :: " + rolls + " / " + size + " / " + bonus);
     return r;
   },
+  GetName(thing){
+    return JSON.stringify(thing);
+  }
 }
 
 export default God;

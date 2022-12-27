@@ -6,6 +6,7 @@ import { table } from "console";
 var Model = {
   Path: `${__dirname}\\modules\\`.replace('renderer\\App', 'renderer').replace('\\app.asar', ''),
   TDict : {},
+  Names:[],
   Init: async ()=>{
     let tables = fs.readdirSync(Model.Path);
     for(let t of tables){
@@ -37,7 +38,9 @@ var Model = {
       }
       // console.log(table);
       Model.TDict[table.Name] = table;
+      Model.Names.push(table.Name);
     }
+    God.Searchbar.Setup();
     // console.log(tables);
   },
   SplitLine(line){

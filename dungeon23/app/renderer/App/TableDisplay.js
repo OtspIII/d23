@@ -2,6 +2,7 @@ import React from "react";
 import Model from "./Model.js";
 import God from "./God.js";
 import RollEntry from "./RollEntry.js";
+import Searchbar from "./Searchbar.js";
 
 class TableDisplay extends React.Component {
   constructor(props){
@@ -9,14 +10,20 @@ class TableDisplay extends React.Component {
     this.state = {
       table:null,
     };
+    God.TableDisplay = this;
+    this.SetTable = this.SetTable.bind(this);
   } 
 
   TableList(){
     let tables = [];
     tables.push(<h3 key="top">List of Tables</h3>);
     for(let t in Model.TDict)
-      tables.push(<div key={"T"+tables.length} className="TableListEntry" onClick={e=>{this.setState({table:t})}}>{t}</div>);
+      tables.push(<div key={"T"+tables.length} className="TableListEntry" onClick={e=>{this.SetTable(t)}}>{t}</div>);
     return tables;
+  }
+
+  SetTable(table){
+    this.setState({table:table});
   }
 
   TableDetails(){
@@ -48,6 +55,7 @@ class TableDisplay extends React.Component {
     else content = this.TableDetails();
     
     return (<div><h1><u>Table</u></h1>
+    <Searchbar/>
     <br/>
     {content}
     </div>);
