@@ -22,8 +22,13 @@ class TableDisplay extends React.Component {
     let table = Model.Get(this.state.table);
     if(!table) return "ERROR";
     let entries = [];
+    let w = 0;
     for(let ent of table.Entries){
-      entries.push(<div key={"E"+entries.length}>Weight: {ent.Weight}: {ent.Text}</div>)
+      let low = w + 1;
+      w += parseInt(ent.Weight);
+      let range = ""+w;
+      if(w > low) range = low + "-" + range;
+      entries.push(<div key={"E"+entries.length}>{range}: {ent.Text}</div>)
     }
     return (<div>
       <h3>{table.Name}</h3>

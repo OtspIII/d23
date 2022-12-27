@@ -1,0 +1,10 @@
+d20 Hazards,,
+Weight,Text,Info
+6,Hit-Point Loss ,
+4,Competence Loss ,
+2,Safety Loss ,
+2,Resource Loss ,
+2,Morality Loss ,
+2,Orientation Loss ,
+1,Time Loss ,
+1,Self Loss ,
