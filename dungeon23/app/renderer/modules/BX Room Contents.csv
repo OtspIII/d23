@@ -1,9 +1,9 @@
-B/X Room Contents,,
-Weight,Text,Info
-6,Monster,
-6,Monster & Treasure,
-4,Trap,
-2,Trap & Treasure,
-6,Special,
-2,Treasure,
-10,Empty,
+B/X Room Contents;;
+Weight;Text;Info;Description
+6;Monster;
+6;Monster & Treasure;
+4;Trap;
+2;Trap & Treasure;
+6;Special;
+2;Treasure;
+10;Empty;

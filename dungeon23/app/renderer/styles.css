@@ -123,3 +123,8 @@ html,body {
   text-align: center;
   border-radius: 0.75vw;
 }
+
+.Link{
+  text-decoration: underline;
+  cursor: pointer;
+}

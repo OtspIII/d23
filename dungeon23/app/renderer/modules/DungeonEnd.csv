@@ -1,22 +1,22 @@
-What's at the dungeon's end?,,
-Weight,Text,Info
-1, God,
-1,Devil,
-1,King,
-1,Wizard,
-1,Billionaire,
-1,Cosmic Horror,
-1,Dragon,
-1,Echidna,
-1,Legendary Monster,
-1,The Messiah,
-1,Sleeping Army,
-1,Artifact,
-1,Archimedean Lever,
-1,Fountain of Youth,
-1,Magical Mutagen,
-1,Dimensional Rift,
-1,The Previous Adventurers,
-1,Something Meta,
-1,The Only Exit,
-1,Roll Twice,{"RollOn":{"Amount":2}}
+What's at the dungeon's end?;;
+Weight;Text;Info;Description
+1; God;
+1;Devil;
+1;King;
+1;Wizard;
+1;Billionaire;
+1;Cosmic Horror;
+1;Dragon;
+1;Echidna;
+1;Legendary Monster;
+1;The Messiah;
+1;Sleeping Army;
+1;Artifact;
+1;Archimedean Lever;
+1;Fountain of Youth;
+1;Magical Mutagen;
+1;Dimensional Rift;
+1;The Previous Adventurers;
+1;Something Meta;
+1;The Only Exit;
+1;Roll Twice;{"RollOn":["",""]}

@@ -65,7 +65,7 @@ var Model = {
           inQuotes = true;
         console.log(n + " / " + line);
       }
-      else if(line[n] == "," && !inQuotes && !json){
+      else if(line[n] == ";" && !inQuotes && !json){
         r.push(substr);
         substr = "";
       }
@@ -108,21 +108,27 @@ var Model = {
     depth++;
     if(depth > 99) return;
     let ent = picked.Entry;
-    result.Readout.push({Text:ent.Text,Roll:picked.Roll,Depth:depth});
+    let readout = {Text:ent.Text,Roll:picked.Roll,Depth:depth};
     let info = ent.Info;
     if(info){
       if(info.RollOn){
-        let nextTable = Model.Get(info.RollOn.Table);
-        if(!nextTable) nextTable = table;
-        let rolls = info.RollOn.Amount ? info.RollOn.Amount : 1;
-        for(let n = 0;n < rolls;n++){
+        for(let tab of info.RollOn){
+          let nextTable = Model.Get(tab);
+          if(!nextTable) nextTable = table;
+          // let rolls = info.RollOn.Amount ? info.RollOn.Amount : 1;
+          // for(let n = 0;n < rolls;n++){
           let nPicked = Model.PickRandom(nextTable);
           Model.HandleEntry(nPicked,result,nextTable,depth);
-        } 
+          // } 
+        }
+      }
+      if(info.Url){
+        readout.Url = info.Url;
       }
       // console.log("INFO: " + ent.Info);
       // result.Readout.push({Text:JSON.stringify(ent.Info)});
     }
+    result.Readout.push(readout);
   }
 }
 
