@@ -109,6 +109,7 @@ var Model = {
     if(depth > 99) return;
     let ent = picked.Entry;
     let readout = {Text:ent.Text,Roll:picked.Roll,Depth:depth};
+    result.Readout.push(readout);
     let info = ent.Info;
     if(info){
       if(info.RollOn){
@@ -128,7 +129,7 @@ var Model = {
       // console.log("INFO: " + ent.Info);
       // result.Readout.push({Text:JSON.stringify(ent.Info)});
     }
-    result.Readout.push(readout);
+    
   }
 }
 
