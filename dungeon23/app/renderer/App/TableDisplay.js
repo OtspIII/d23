@@ -17,8 +17,10 @@ class TableDisplay extends React.Component {
   TableList(){
     let tables = [];
     tables.push(<h3 key="top">List of Tables</h3>);
-    for(let t in Model.TDict)
+    for(let t of Model.Names){
+      // let table = Model.TDict[t];
       tables.push(<div key={"T"+tables.length} className="TableListEntry" onClick={e=>{this.SetTable(t)}}>{t}</div>);
+    }
     return tables;
   }
 

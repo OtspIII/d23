@@ -25,6 +25,10 @@ var Model = {
             table.Name += "*";
           }
           n++;
+          let prio = parseInt(entries[2]);
+          if(!prio) prio = 3;
+          table.Priority = prio;
+          console.log(table.Name + ": " + table.Priority)
           continue;
         }
         // if(entries[2] ) console.log("."+entries[2]+"." + entries[2].length);
@@ -40,8 +44,17 @@ var Model = {
       Model.TDict[table.Name] = table;
       Model.Names.push(table.Name);
     }
+    Model.Names.sort((a,b)=>Model.SortTables(a,b))
     God.Searchbar.Setup();
     // console.log(tables);
+  },
+  SortTables(a,b){
+    let ta = Model.TDict[a];
+    let tb = Model.TDict[b];
+    if(ta.Priority == tb.Priority)
+      return ta.Name >= tb.Name ? 1 : -1;
+    // console.log("SORT: " + ta.Name + " / " + tb.Name +" " + (ta.Priority > tb.Priority)); 
+    return ta.Priority > tb.Priority ? -1 : 1;
   },
   SplitLine(line){
     let r = [];
