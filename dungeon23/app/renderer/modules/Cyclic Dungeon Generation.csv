@@ -1,0 +1,14 @@
+Cyclic Dungeon Generation;;https://sersavictory.itch.io/cyclic-dungeon-generation
+Weight;Text;Info;Description
+1;Two Alternate Paths;;
+1;Two Keys;{"RollOn":["Cyclic Lock & Key"]};
+1;Hidden Shortcut;;
+1;Dangerous Route;;
+1;Foreshadowing Loop;;
+1;Lock & Key Cycle;{"RollOn":["Cyclic Lock & Key"]};
+1;Blocked Retreat;{"RollOn":["Cyclic Barrier"]};
+1;Monster Patrol;;
+1;Altered Return;;
+1;False Goal;;
+1;Simple Lock & Key;{"RollOn":["Cyclic Lock & Key"]};
+1;Gambit;;

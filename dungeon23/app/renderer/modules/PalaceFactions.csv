@@ -1,0 +1,4 @@
+Palace Factions;;
+Weight;Text;Info;Description
+1;The Immortal Queen & Her Court;;
+1;Create A New Faction;{"RollOn":["Faction Relationships","#dungeon23 Themes"]};

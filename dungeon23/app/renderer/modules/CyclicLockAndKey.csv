@@ -1,0 +1,8 @@
+Cyclic Lock & Key;;https://sersavictory.itch.io/cyclic-dungeon-generation
+Weight;Text;Info;Description
+1;Literal Door Lock & Key;;
+1;Locked Terrain Feature & Key/Activator;;
+1;Impassable Obstacle/Hazard & Way To Turn Off/Bypass;;
+1;Powerful Monster & Means To Slay/Evade;;
+1;Trap & Way To Bypass;;
+1;Dangerous Hazard & Way To Neutralize;;
